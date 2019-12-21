@@ -1,79 +1,80 @@
-#include<iostream>
-#include<iomanip>
-#include<fstream>
-#include<conio.h>
-#include<string.h>
-#include<stdio.h>
-#include <cstdlib>
-#include <windows.h>
+#include<iostream>   /////////////////////////////////////////
+#include<iomanip>    /////////////////////////////////////////
+#include<fstream>    /////////////////////////////////////////
+#include<conio.h>    //////////////////Header/////////////////
+#include<string.h>   //////////////////Files//////////////////
+#include<stdio.h>    /////////////////////////////////////////
+#include <cstdlib>   /////////////////////////////////////////
+#include <windows.h> /////////////////////////////////////////
 using namespace std;
 //////////////////////////////////////
 //////function prototypes/////////////
 //////////////////////////////////////
-void gotoxy(short , short );
-void display();
-void add();
-void search();
-void sort();
-void del();
-void modify();
-void sbyname();
-void sbyid();
-void sbycategory();
-void sbypubcom();
-void sbypubyear();
-void sbyauthor();
-void sortas();
-void sortds();
-void sortasname();
-void sortasid();
-void sortascategory();
-void sortaspubcom();
-void sortaspubyear();
-void sortasauthor();
-void sortdsname();
-void sortdsid();
-void sortdscategory();
-void sortdspubcom();
-void sortdspubyear();
-void sortdsauthor();
-void dbyname();
-void dbyid();
-void dbycategory();
-void dbypubcom();
-void dbypubyear();
-void dbyauthor();
-void mbyname();
-void mbyid();
-void mbycategory();
-void mbypubcom();
-void mbypubyear();
-void mbyauthor();
+void gotoxy(short , short ); 
+void display(); //display function
+void add();     //add function
+void search();  //search function
+void sort();    //sort function
+void del();     //delete function
+void modify();  //modify function
+void sbyname(); //search by name
+void sbyid();   //search by id
+void sbycategory();  //search by category
+void sbypubcom();    //search by publcation company
+void sbypubyear();   //search by publishing year
+void sbyauthor();    //search by author
+void sortas();     //sort in ascending order
+void sortds();     //sort in descending order
+void sortasname(); //sort in ascending order by name
+void sortasid();   //sort in ascending order by id
+void sortascategory();  //sort in ascending order by category
+void sortaspubcom();   //sort in ascending order by publication company
+void sortaspubyear();  //sort in ascending order by publication year
+void sortasauthor();  //sort in ascending order by author
+void sortdsname();   //sort in descending order by name
+void sortdsid();     //sort in descending order by id
+void sortdscategory();  //sort in descending order by category
+void sortdspubcom();    //sort in descending order by publication company
+void sortdspubyear();   //sort in descending order by publication year
+void sortdsauthor();    //sort in descending order by author
+void dbyname();    //delete by name
+void dbyid();      //delete by id
+void dbycategory();  //delete by category
+void dbypubcom();    //delete by publication company
+void dbypubyear();   //delete by publication year
+void dbyauthor();    //delete by author
+void mbyname();      //modify by name
+void mbyid();        //modify by id
+void mbycategory();  //modify by cateory
+void mbypubcom();    //modify by publication company
+void mbypubyear();    //modify by publication year
+void mbyauthor();    //modify by author
 
-struct book
+struct book       //structure of name book
 {
-	int bookid;
-	char bookname[60];
-	char authorname[40];
-	char bookcategory[20];
-	char bookpubcom[30];
-	char bookpubmonth[10];
-	int bookpubyear;
+	int bookid;                ///////////////////////////
+	char bookname[60];         ///////////////////////////
+	char authorname[40];       ///////////////////////////
+	char bookcategory[20];     ///Members of structure/// 
+	char bookpubcom[30];       ///////////////////////////
+	char bookpubmonth[10];     ///////////////////////////
+	int bookpubyear;           ///////////////////////////
 };
    
-    book books[1000];
-    int n=0;
+    book books[1000];          //array of structures
+    int n=0;                   //global variable for number of records
+    
 //////////////////////////////////////
 ///////////////////main///////////////
 /////////////////////////////////////
 int main()
- {
- char ch1;
-   while (1)
-     {
-        system("cls");
+{
+	char ch1;
+	while (1)
+    {
+		system("cls");
 	   
-	   cout << setw( 25 ) << "-------------" << endl
+		cout << setw( 25 ) << "-------------" << endl
 
           << setw( 25 ) << "| MAIN MENU |" << endl
 
@@ -106,37 +107,33 @@ int main()
 		  << setw( 21 ) << "( Q ) Quit" << endl << endl
 		  <<setw( 32 ) << "Enter Option      [ ]" << endl << endl;
 			gotoxy(30,21);
-		//	cin>>ch1;
 	     
-	   
-	  
-      
-	   switch(getche())
-	  //switch(ch1)
-       {
-         case 'a':
-		 case 'A':add();break;
+		switch(getche())
+		{
+			case 'a':
+		 	case 'A':add();break;
          
-		 case 'd':
-		 case 'D': display();break;
+			case 'd':
+		 	case 'D': display();break;
          
-		 case 'S':
-		 case 's':search();break;
+		 	case 'S':
+		 	case 's':search();break;
          
-		 case 't':
-		 case 'T':del();break;
+		 	case 't':
+		 	case 'T':del();break;
 		 
-		 case 'O':
-		 case 'o':sort();break;
+		 	case 'O':
+		 	case 'o':sort();break;
          
-		 case 'm':
-		 case 'M':modify();break;
+		 	case 'm':
+		 	case 'M':modify();break;
 		 
-		 case 'q':
-		 case 'Q':exit(0);break;
-         default:
-		puts("\n\n \t\tSelect only from the given menu.....\n \t\tpress enter to to go to main menu......");
-		getch();
+		 	case 'q':
+		 	case 'Q':exit(0);break;
+         
+		 	default:
+			puts("\n\n \t\tSelect only from the given menu.....\n \t\tpress enter to to go to main menu......");
+			getch();
        } //end switch
      }//end while
     
@@ -151,13 +148,13 @@ void display(void)
 	{
 		system("cls");
 		cout<< "In display function\n";
-		cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-		cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-		cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+		cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+		cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+		cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
 		for(int i=0;i<n;i++)
 			{
-				cout<<setw(10)<<books[i].bookid<<setw(30)<<books[i].bookname<<setw(30)<<books[i].authorname<<setw(30)<<books[i].bookcategory<<setw(30)<<books[i].bookpubcom<<setw(30)<<books[i].bookpubmonth<<setw(30)<<books[i].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[i].bookid<<setw(50)<<books[i].bookname<<setw(30)<<books[i].authorname<<setw(30)<<books[i].bookcategory<<setw(30)<<books[i].bookpubcom<<setw(30)<<books[i].bookpubmonth<<setw(30)<<books[i].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
 			}
 			cout<<"Press enter to goto main manu.....";
 			getch();
@@ -230,13 +227,8 @@ void search(void)
           
 		  <<setw( 32 ) << "Enter Option      [ ]" << endl << endl;
 			gotoxy(30,16);
-		//	cin>>ch1;
-	     
-	   
-	  
-      
+	
 	   switch(getche())
-	  //switch(ch1)
        {
          case 'n':
 		 case 'N':sbyname();break;
@@ -263,6 +255,8 @@ void search(void)
 		getch();
        }
 	}
+	
+///////Search by name///////
 
 void sbyname(void)
 	{
@@ -280,11 +274,11 @@ void sbyname(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -292,6 +286,8 @@ void sbyname(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+
+///////Search by author///////
 	
 void sbyauthor(void)
 	{
@@ -309,11 +305,11 @@ void sbyauthor(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -321,6 +317,8 @@ void sbyauthor(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}	
+	
+///////Search by id///////	
 
 void sbyid(void)
 	{
@@ -339,11 +337,11 @@ void sbyid(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -351,6 +349,8 @@ void sbyid(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+	
+///////Search by category///////	
 	
 void sbycategory(void)
 	{
@@ -368,11 +368,11 @@ void sbycategory(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -380,6 +380,8 @@ void sbycategory(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+
+///////Search by Publication Company///////
 	
 void sbypubcom(void)
 	{
@@ -397,11 +399,11 @@ void sbypubcom(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -409,6 +411,8 @@ void sbypubcom(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+	
+///////Search by Publication Year///////
 	
 void sbypubyear(void)
 	{
@@ -427,11 +431,11 @@ void sbypubyear(void)
 				loc=i;
 				found = 1;
 				cout<< "Record Found!"<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<"\"Book ID\""<<setw(30)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
-				cout<<setw(10)<<books[loc].bookid<<setw(30)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
-				cout<<"__________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 			}
 		}
 		if(found == 0)
@@ -455,9 +459,9 @@ void sort(void)
 
           << endl << endl
 
-          << setw( 42 ) << "( A ) Search in Ascending Order" << endl << endl
+          << setw( 40 ) << "( A ) Sort in Ascending Order" << endl << endl
 
-          << setw( 43 ) << "( D ) Search in Descending Order" << endl << endl
+          << setw( 41 ) << "( D ) Sort in Descending Order" << endl << endl
           
           <<setw( 32 ) << "Enter Option      [ ]" << endl << endl;
 			gotoxy(30,8);
@@ -482,6 +486,8 @@ void sort(void)
 		getch();
        }
 }
+
+///////Sort in Ascending Order///////
 
 void sortas(void)
 {
@@ -544,6 +550,8 @@ void sortas(void)
        }
 }
 
+///////Sort in Desending Order///////
+
 void sortds(void)
 {
 	system("cls");
@@ -605,6 +613,8 @@ void sortds(void)
        }
 }
 
+///////Sort in Ascending order by id///////
+
 void sortasid(void)
 	{
 		int i,j;
@@ -626,6 +636,8 @@ void sortasid(void)
 		}
 		display();
 	}
+	
+///////Sort in Descending order by id///////
 
 void sortdsid(void)
 	{
@@ -649,6 +661,8 @@ void sortdsid(void)
 		display();
 	}
 
+///////Sort in Ascending order by year///////
+
 void sortaspubyear(void)
 	{
 		int i,j;
@@ -670,6 +684,8 @@ void sortaspubyear(void)
 		}
 		display();
 	}
+	
+///////Sort in Descending order by year///////
 
 void sortdspubyear(void)
 	{
@@ -693,6 +709,8 @@ void sortdspubyear(void)
 		display();
 	}
 
+///////Sort in Ascending order by name///////
+
 void sortasname(void)
 	{
 		int i,j;
@@ -714,6 +732,8 @@ void sortasname(void)
 		}
 		display();
 	}
+
+///////Sort in Descending order by name///////
 
 void sortdsname(void)
 	{
@@ -737,6 +757,8 @@ void sortdsname(void)
 		display();
 	}
 
+///////Sort in Ascending order by author///////
+
 void sortasauthor(void)
 	{
 		int i,j;
@@ -758,6 +780,8 @@ void sortasauthor(void)
 		}
 		display();
 	}
+
+///////Sort in Descending order by author///////
 
 void sortdsauthor(void)
 	{
@@ -781,6 +805,8 @@ void sortdsauthor(void)
 		display();
 	}
 
+///////Sort in Ascending order by category///////
+
 void sortascategory(void)
 	{
 		int i,j;
@@ -802,6 +828,8 @@ void sortascategory(void)
 		}
 		display();
 	}
+
+///////Sort in Descending order by category///////
 
 void sortdscategory(void)
 	{
@@ -825,6 +853,8 @@ void sortdscategory(void)
 		display();
 	}
 
+///////Sort in Ascending order by company///////
+
 void sortaspubcom(void)
 	{
 		int i,j;
@@ -846,6 +876,8 @@ void sortaspubcom(void)
 		}
 		display();
 	}
+
+///////Sort in Descending order by company///////
 
 void sortdspubcom(void)
 	{
@@ -931,6 +963,8 @@ void del(void)
        }
 	}
 
+///////Delete by name///////
+
 void dbyname(void)
 	{
 		char name[60];
@@ -958,6 +992,8 @@ void dbyname(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+
+///////Delete by author///////
 	
 void dbyauthor(void)
 	{
@@ -986,6 +1022,8 @@ void dbyauthor(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}	
+
+///////Delete by id///////
 
 void dbyid(void)
 	{
@@ -1016,6 +1054,8 @@ void dbyid(void)
 		getch();
 	}
 	
+///////Delete by category///////	
+	
 void dbycategory(void)
 	{
 		char category[60];
@@ -1044,6 +1084,8 @@ void dbycategory(void)
 		getch();
 	}
 	
+///////Delete by company///////
+	
 void dbypubcom(void)
 	{
 		char company[60];
@@ -1071,6 +1113,8 @@ void dbypubcom(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+	
+///////Delete by year///////
 	
 void dbypubyear(void)
 	{
@@ -1162,6 +1206,8 @@ void modify(void)
        }
 	}
 
+///////Modify by name///////
+
 void mbyname(void)
 	{
 		char name[60];
@@ -1179,27 +1225,18 @@ void mbyname(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
+				cout<<"Enter new Book Name: ";    
 				gets(books[loc].bookname);
 				//cin.getline(emp[n].name,40);
 				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
-				gets(id1);
-				books[loc].bookid=atoi(id1);
-				//cin.ignore();
-				cout<<"Enter Author Name: ";
-				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
-				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
-				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
-				gets(year);
-				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 		}
 		if(found == 0)
 			cout<<"Record not Found"<<endl;
@@ -1207,6 +1244,9 @@ void mbyname(void)
 		getch();
 		}
 	}
+	
+///////Modify by author///////
+	
 void mbyauthor(void)
 	{
 		char author[60];
@@ -1224,27 +1264,16 @@ void mbyauthor(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
-				gets(books[loc].bookname);
-				//cin.getline(emp[n].name,40);
-				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
-				gets(id1);
-				books[loc].bookid=atoi(id1);
-				//cin.ignore();
-				cout<<"Enter Author Name: ";
+				cout<<"Enter new Author Name: ";
 				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
-				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
-				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
-				gets(year);
-				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 			}
 		}
 		if(found == 0)
@@ -1252,6 +1281,8 @@ void mbyauthor(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}	
+
+///////Modify by id///////
 
 void mbyid(void)
 	{
@@ -1271,27 +1302,18 @@ void mbyid(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
-				gets(books[loc].bookname);
-				//cin.getline(emp[n].name,40);
-				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
+				cout<<"Enter new Book ID: ";
 				gets(id1);
 				books[loc].bookid=atoi(id1);
 				//cin.ignore();
-				cout<<"Enter Author Name: ";
-				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
-				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
-				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
-				gets(year);
-				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 			}
 		}
 		if(found == 0)
@@ -1300,6 +1322,8 @@ void mbyid(void)
 		getch();
 	}
 	
+///////Modify by category///////
+
 void mbycategory(void)
 	{
 		char category[60];
@@ -1317,27 +1341,16 @@ void mbycategory(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
-				gets(books[loc].bookname);
-				//cin.getline(emp[n].name,40);
-				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
-				gets(id1);
-				books[loc].bookid=atoi(id1);
-				//cin.ignore();
-				cout<<"Enter Author Name: ";
-				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
+				cout<<"Enter new Book Category: ";
 				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
-				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
-				gets(year);
-				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 			}
 		}
 		if(found == 0)
@@ -1345,6 +1358,8 @@ void mbycategory(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+
+///////Modify by company///////
 	
 void mbypubcom(void)
 	{
@@ -1363,27 +1378,16 @@ void mbypubcom(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
-				gets(books[loc].bookname);
-				//cin.getline(emp[n].name,40);
-				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
-				gets(id1);
-				books[loc].bookid=atoi(id1);
-				//cin.ignore();
-				cout<<"Enter Author Name: ";
-				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
-				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
+				cout<<"Enter new Publication Company Name: ";
 				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
-				gets(year);
-				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 			}
 		}
 		if(found == 0)
@@ -1391,6 +1395,8 @@ void mbypubcom(void)
 		cout<<"Press enter to goto main manu.....";
 		getch();
 	}
+
+///////Modify by year///////
 	
 void mbypubyear(void)
 	{
@@ -1410,27 +1416,17 @@ void mbypubyear(void)
 				found = 1;
 				char ch;char id1[6],year[4];
 				system("cls");
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<"\"Book ID\""<<setw(50)<<"\"Book Name\""<<setw(30)<<"\"Author Name\""<<setw(30)<<"\"Category\""<<setw(30)<<"\"Publication\""<<setw(30)<<"\"Month of Publication\""<<setw(30)<<"\"Year of Publication\""<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;
+				cout<<setw(10)<<books[loc].bookid<<setw(50)<<books[loc].bookname<<setw(30)<<books[loc].authorname<<setw(30)<<books[loc].bookcategory<<setw(30)<<books[loc].bookpubcom<<setw(30)<<books[loc].bookpubmonth<<setw(30)<<books[loc].bookpubyear<<endl;
+				cout<<"__________"<<"__________________________________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<"______________________________"<<endl;	
 				cout<<endl;
 				cout<< "In Modify function\n";
-				cout<<"Enter Book Name: ";    
-				gets(books[loc].bookname);
-				//cin.getline(emp[n].name,40);
-				//cin.ignore(40,'\n');
-				cout<<"Enter Book ID: ";
-				gets(id1);
-				books[loc].bookid=atoi(id1);
-				//cin.ignore();
-				cout<<"Enter Author Name: ";
-				gets(books[loc].authorname);
-				cout<<"Enter Book Category: ";
-				gets(books[loc].bookcategory);
-				cout<<"Enter Publication Company Name: ";
-				gets(books[loc].bookpubcom);
-				cout<<"Enter Publication Month: ";
-				gets(books[loc].bookpubmonth);
-				cout<<"Enter Publication Year: ";
+				cout<<"Enter new Publication Year: ";
 				gets(year);
 				books[loc].bookpubyear=atoi(year);
+				cout<<"MODIFIED!"<<endl;
 			}
 		}
 		if(found == 0)
